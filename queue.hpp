@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <deque>
 
 class Task
 {
@@ -17,5 +18,18 @@ class Task
 
 class Queue_Task
 {
-    std::vector<int>
+    std::deque <Task> Queue;
+
+    void enqueue(Task task);
+    void dequeue();
+    Task* front();
+    bool isEmpty();
+    int size();
+    void clear();
+    void print();
+    Task* find(int id);
+    void erase(int id);
+    int comp_count();
+    bool check(int id);
+    
 };
