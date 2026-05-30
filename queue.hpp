@@ -1,3 +1,5 @@
+#pragma once
+
 #include <vector>
 #include <string>
 #include <deque>
@@ -11,17 +13,17 @@ class Task
     bool status = false;
 
     Task()=default;
+    Task(int id,std::string dscr,int prior,bool status):id(id),dscr(dscr),prior(prior),status(status){};
     ~Task()=default;
 
-    void done();
 };
 
 class Queue_Task
 {
     private:
-    int completed;
-    public:
+    int completed=0;
     std::deque <Task> Queue;
+    public:
     void enqueue(Task task);
     void dequeue();
     Task* front();
@@ -33,5 +35,5 @@ class Queue_Task
     void erase(int id);
     int comp_count();
     bool check(int id);
-    
+    void print_line();
 };

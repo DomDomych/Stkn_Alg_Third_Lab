@@ -1,16 +1,11 @@
 #include "queue.hpp"
 #include <iostream>
 
-void Task::done(){
-    status = true;
-    return;
-}
-
-
 
 void Queue_Task::dequeue()
 {
     if(Queue.empty())return;
+    if(Queue.front().status)completed--;
     Queue.pop_front();
 }
 
@@ -32,6 +27,7 @@ int Queue_Task::size()
 
 void Queue_Task::clear()
 {
+    completed=0;
     Queue.clear();
     return;
 }
@@ -65,6 +61,7 @@ void Queue_Task::erase(int id)
     {
         if(Queue[i].id==id)
         {
+            if(Queue[i].status)completed--;
             Queue.erase(Queue.begin()+i);
             return;
         }
@@ -89,7 +86,22 @@ bool Queue_Task::check(int id)
 
 void Queue_Task::enqueue(Task task)
 {
-    if(check(task.id))return;
-    if(task.status)completed++;
+    if(check(task.id)){
+        return;
+    }
+
+    if(task.status){
+        completed++;
+    }
+
     Queue.push_back(task);
+}
+
+void Queue_Task::print_line()
+{
+    for(int i=0;i<Queue.size();i++)
+    {
+        std::cout<<i+1<<'. '<<Queue[i].dscr<<' ';
+    }
+    return;
 }
