@@ -34,12 +34,15 @@ void Queue_Task::clear()
 
 void Queue_Task::print()
 {
+    std::cout<<"================\n";
     for(int i=0;i<Queue.size();i++){
         std::cout<<Queue[i].id<<' '
                  <<Queue[i].dscr<<' '
                  <<Queue[i].prior<<' '
                  <<((Queue[i].status)?"Done":"Not Done")<<'\n';
     }
+    if(Queue.empty())std::cout<<"Очередь Пустая\n";
+    std::cout<<"================\n";
     return;
 }
 
@@ -99,9 +102,12 @@ void Queue_Task::enqueue(Task task)
 
 void Queue_Task::print_line()
 {
+    std::cout<<"*************************\n";
     for(int i=0;i<Queue.size();i++)
     {
-        std::cout<<i+1<<'. '<<Queue[i].dscr<<' ';
+        std::cout<<i+1<<". "<<Queue[i].dscr<<' ';
     }
+    std::cout<<"\n*************************";
+    std::cout<<'\n';
     return;
 }
