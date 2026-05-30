@@ -18,8 +18,10 @@ class Task
 
 class Queue_Task
 {
+    private:
+    int completed;
+    public:
     std::deque <Task> Queue;
-
     void enqueue(Task task);
     void dequeue();
     Task* front();
