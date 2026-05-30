@@ -12,8 +12,11 @@ class Task
     int prior;
     bool status = false;
 
+    bool operator==(const Task& other) const;
+    
     Task()=default;
     Task(int id,std::string dscr,int prior,bool status):id(id),dscr(dscr),prior(prior),status(status){};
+    Task(const Task &other):id(other.id),dscr(other.dscr),prior(other.prior),status(other.status){};
     ~Task()=default;
 
 };
@@ -36,4 +39,9 @@ class Queue_Task
     int comp_count();
     bool check(int id);
     void print_line();
+
+    Queue_Task() = default;
+    ~Queue_Task() = default;
+
+
 };

@@ -1,7 +1,15 @@
 #include "queue.hpp"
 #include <iostream>
 
+bool Task::operator==(const Task& other)const
+{
+    if(id==other.id && dscr==other.dscr && prior==other.prior && status==other.status)
+    {
+        return true;
+    }
 
+    return false;
+}
 void Queue_Task::dequeue()
 {
     if(Queue.empty())return;
